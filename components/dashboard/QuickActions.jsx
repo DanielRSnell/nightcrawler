@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 
 export function QuickActions() {
   return (
-    <Card className="border-border/40">
+    <Card className="custom-border border-gray-900/30/40">
       <CardHeader>
         <CardTitle>Quick Actions</CardTitle>
         <CardDescription>Common dashboard tasks</CardDescription>

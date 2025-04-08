@@ -32,18 +32,19 @@ export function Gauge({
   const getColor = (opacity = 1) => {
     let color;
     if (colorMode !== 'auto') {
+      // Update colors to use RGBA values
       switch (colorMode) {
-        case 'success': color = 'var(--success, #10b981)'; break;
-        case 'warning': color = 'var(--warning, #f59e0b)'; break;
-        case 'danger': color = 'var(--danger, #ef4444)'; break;
+        case 'success': color = 'rgba(16, 185, 129, 1)'; break;
+        case 'warning': color = 'rgba(245, 158, 11, 1)'; break;
+        case 'danger': color = 'rgba(239, 68, 68, 1)'; break;
         case 'info': color = 'var(--info, #3b82f6)'; break;
         default: color = 'var(--primary, #6366f1)';
       }
     } else {
       // Auto color based on percentage
-      if (percentage < 30) color = 'var(--danger, #ef4444)';
-      else if (percentage < 70) color = 'var(--warning, #f59e0b)';
-      else color = 'var(--success, #10b981)';
+      if (percentage < 30) color = 'rgba(239, 68, 68, 1)';
+      else if (percentage < 70) color = 'rgba(245, 158, 11, 1)';
+      else color = 'rgba(16, 185, 129, 1)';
     }
     
     // If opacity is not 1, convert to rgba
@@ -64,7 +65,7 @@ export function Gauge({
     sm: {
       width: 120,
       strokeWidth: 12,
-      fontSize: 'text-2xl',
+      fontSize: 'text-xl',
       labelSize: 'text-xs',
       valueOffset: 0,
       labelOffset: 2,

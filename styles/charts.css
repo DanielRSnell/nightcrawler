@@ -3,7 +3,7 @@
 @import "./chart/_utilization-grid.css";
 
 .chart-bar {
-  @apply flex-1 transition-all duration-200 relative opacity-90 rounded-t-md z-10 border border-border/70;
+  @apply flex-1 transition-all duration-200 relative opacity-90 rounded-t-md z-10 border border-gray-900/70;
   background-color: var(--card);
   box-shadow: 0 0 8px rgba(var(--chart-2), 0.4);
 }

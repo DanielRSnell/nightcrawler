@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/danielsnell/Desktop/projects/nightcrawler/dashboard/app/workflow/create/layout.js"],"sourcesContent":["export default function WorkflowCreateLayout({ children }) {\n  return children;\n} "],"names":[],"mappings":";;;AAAe,SAAS,qBAAqB,EAAE,QAAQ,EAAE;IACvD,OAAO;AACT","debugId":null}}]
+}

@@ -1,38 +1,48 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "../styles/main.css";
-import AuthWrapper from "@/components/auth/auth-wrapper";
+'use client';
+
+import { Inter } from "next/font/google";
+import "@/styles/main.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AuthWrapper } from "@/components/auth/auth-wrapper";
+import { useAuthStore } from "@/lib/store/auth";
+import apiManifest from "./api-manifest";
+import { Sidebar } from '@/components/sidebar';
 
-// We don't need to import the API manifest here since it's used directly in the auth store
+const inter = Inter({ subsets: ["latin"] });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Nightcrawler | Silicon Monitoring Dashboard",
-  description: "A comprehensive dashboard for monitoring silicon allocation and computing cluster workflows",
-};
+// Metadata is now handled by Next.js through a separate metadata object
+// in a different file or through generateMetadata
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const { checkAuth } = useAuthStore();
+  const isAuthenticated = checkAuth();
+
+  // This ensures the API manifest is processed during build
+  // eslint-disable-next-line no-unused-vars
+  const _apiPaths = apiManifest;
+
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
-      >
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="icon"
+          href="/favicon.ico"
+          sizes="any"
+        />
+      </head>
+      <body className={`${inter.className} bg-background text-foreground antialiased`}>
         <ThemeProvider defaultTheme="dark">
-          <AuthWrapper>{children}</AuthWrapper>
+          {isAuthenticated && <div className="flex h-screen">
+            <Sidebar />
+{children}          
+</div>}
+          {!isAuthenticated && <div className="flex h-screen justify-center items-center">
+            <AuthWrapper>{children}</AuthWrapper>
+          </div>}
         </ThemeProvider>
       </body>
     </html>

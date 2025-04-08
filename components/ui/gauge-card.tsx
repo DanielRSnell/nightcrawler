@@ -20,7 +20,7 @@ export function GaugeCard({
   ...gaugeProps
 }: GaugeCardProps) {
   return (
-    <Card className={cn("border-border/40 bg-black", cardClassName)}>
+    <Card className={cn("custom-border border-gray-900/30/40 bg-black", cardClassName)}>
       {(title || description) && (
         <CardHeader className="pb-0">
           {title && <CardTitle className="text-lg font-medium">{title}</CardTitle>}

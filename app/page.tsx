@@ -6,6 +6,9 @@ import { OverviewChart } from '@/components/dashboard/OverviewChart';
 import { RecentSales } from '@/components/dashboard/RecentSales';
 import { GaugeCard } from '@/components/ui/gauge-card.tsx';
 import { UtilizationGrid } from '@/components/ui/utilization-grid';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function DashboardPage() {
   // Mock data for stats cards
@@ -67,59 +70,37 @@ export default function DashboardPage() {
   const cpuUtilizationData = generateCpuUtilizationData();
 
   return (
-    <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
+    <div className="container mx-auto py-10 space-y-8">
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-bold">Dashboard</h1>
+        <Button asChild>
+          <Link href="/workflow/create">Create Workflow</Link>
+        </Button>
       </div>
       
-      <StatsCards stats={statsData} />
-      
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <GaugeCard 
-          title="CPU Usage" 
-          description="Current utilization" 
-          value={25} 
-          max={100} 
-          label="Low usage" 
-          unit="%" 
-        />
-        <GaugeCard 
-          title="Memory Usage" 
-          description="RAM allocation" 
-          value={58} 
-          max={100} 
-          label="Medium usage" 
-          unit="%" 
-          colorMode="warning" 
-        />
-        <GaugeCard 
-          title="GPU Utilization" 
-          description="CUDA cores" 
-          value={82} 
-          max={100} 
-          label="High usage" 
-          unit="%" 
-          colorMode="success" 
-        />
-        <GaugeCard 
-          title="Disk I/O" 
-          description="Read/Write operations" 
-          value={92} 
-          max={100} 
-          label="Critical" 
-          unit="%" 
-          colorMode="danger" 
-        />
+      <div className="grid gap-6 md:grid-cols-2">
+        <Card className="custom-border border-gray-900/30/40 bg-black">
+          <CardHeader>
+            <CardTitle className="text-2xl font-medium">Resource Utilization</CardTitle>
+            <CardDescription>Current system resource usage</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {/* Add your resource utilization content here */}
+          </CardContent>
+        </Card>
+        
+        <Card className="custom-border border-gray-900/30/40 bg-black">
+          <CardHeader>
+            <CardTitle className="text-2xl font-medium">Recent Workflows</CardTitle>
+            <CardDescription>Recently executed workflows</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {/* Add your recent workflows content here */}
+          </CardContent>
+        </Card>
       </div>
       
-      <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-1">
-        <UtilizationGrid />
-      </div>
-      
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-        <OverviewChart className="lg:col-span-4" chartData={{}} />
-        <RecentSales className="lg:col-span-3" workflowData={{}} />
-      </div>
+      <UtilizationGrid />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { useAuthStore } from '@/lib/store/auth';
 import { StatsCards } from '@/components/dashboard/StatsCards';
 import { OverviewChart } from '@/components/dashboard/OverviewChart';
 import { RecentSales } from '@/components/dashboard/RecentSales';
+import { UtilizationGrid } from '@/components/ui/utilization-grid';
 import { Download, Calendar, Server, Cpu, Activity, Network } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -214,7 +215,7 @@ export default function DashboardPage() {
               <Calendar className="h-4 w-4 mr-2" />
               <span>{formattedDate}</span>
             </div>
-            <Button variant="outline" className="bg-transparent border border-gray-700 text-white hover:bg-gray-800">
+            <Button variant="outline" className="bg-transparent border border-gray-700 text-white hover:bg-gray-800/50 ">
               <Download className="h-4 w-4 mr-2" />
               Export Data
             </Button>
@@ -255,7 +256,7 @@ export default function DashboardPage() {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="mt-8"
         >
-          {/* Space for additional components */}
+          <UtilizationGrid />
         </motion.div>
       </motion.div>
     </div>

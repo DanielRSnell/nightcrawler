@@ -10,7 +10,7 @@ export function AuthenticationStatus() {
   const expiresIn = "5:00 minutes";
   
   return (
-    <Card className="border-border/40">
+    <Card className="custom-border border-gray-900/30/40">
       <CardHeader>
         <CardTitle>Authentication Status</CardTitle>
         <CardDescription>Keycloak session info</CardDescription>

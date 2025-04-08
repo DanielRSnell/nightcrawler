@@ -226,7 +226,7 @@ export function RecentSales({ workflowData, className }) {
   const fixedContainerHeight = 5 * 60 + 24; // 5 items + header padding
   
   return (
-    <div className={`bg-black border-2 border-border shadow-lg rounded-lg p-6 relative overflow-hidden ${className}`}>
+    <div className={`bg-black border-2border-gray-900/30 shadow-lg rounded-lg p-6 relative overflow-hidden ${className}`}>
       {/* Subtle gradient overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/30 pointer-events-none"></div>
       
@@ -270,7 +270,7 @@ export function RecentSales({ workflowData, className }) {
                   className="flex items-center justify-between overflow-hidden mb-6 relative"
                 >
                   <div className="flex items-center space-x-4">
-                    <Avatar className="h-9 w-9 bg-gray-800 text-white border border-gray-700">
+                    <Avatar className="h-9 w-9 bg-gray-800/50 /50 text-white border border-gray-700">
                       <div className="flex items-center justify-center h-full w-full text-sm font-medium">
                         {workflow.avatarFallback}
                       </div>

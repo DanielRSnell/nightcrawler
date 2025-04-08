@@ -33,7 +33,7 @@ export default function LoginPage() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-sm"
       >
-        <Card className="border-border/40 shadow-md">
+        <Card className="custom-border border-gray-900/30/40 shadow-md">
           <CardHeader>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}

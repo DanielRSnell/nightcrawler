@@ -38,7 +38,7 @@ export function CustomTooltip({ active, payload, label, config }) {
   if (!active || !payload?.length || !config) return null
 
   return (
-    <div className="rounded-lg border border-border bg-black/90 p-2 shadow-md backdrop-blur-sm">
+    <div className="rounded-lg border border-gray-900/30 bg-black/90 p-2 shadow-md backdrop-blur-sm">
       <div className="text-xs font-medium text-foreground">{label}</div>
       <div className="mt-1 space-y-0.5">
         {payload.map((item, index) => {

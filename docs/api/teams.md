@@ -17,6 +17,7 @@ Retrieves a list of all teams and summary information.
 **Endpoint:** `GET /api/teams`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Response:**
@@ -46,7 +47,7 @@ Retrieves a list of all teams and summary information.
       "activeProjects": 5,
       "tags": ["research", "high-priority", "ml-models"],
       "createdAt": "2022-09-15"
-    },
+    }
     // Additional teams...
   ]
 }
@@ -59,9 +60,11 @@ Retrieves detailed information about a specific team.
 **Endpoint:** `GET /api/teams/{teamId}`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `teamId` (path parameter): The unique identifier of the team
 
 **Response:**
@@ -93,6 +96,7 @@ Creates a new team.
 **Endpoint:** `POST /api/teams`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Request Body:**
@@ -124,7 +128,7 @@ Creates a new team.
   "resourceAllocation": 0,
   "activeProjects": 0,
   "tags": ["new-team", "research"],
-  "createdAt": "2023-06-15"
+  "createdAt": "2025-06-15"
 }
 ```
 
@@ -135,9 +139,11 @@ Updates an existing team.
 **Endpoint:** `PUT /api/teams/{teamId}`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `teamId` (path parameter): The unique identifier of the team
 
 **Request Body:**
@@ -180,9 +186,11 @@ Deletes a team.
 **Endpoint:** `DELETE /api/teams/{teamId}`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `teamId` (path parameter): The unique identifier of the team
 
 **Response:**
@@ -201,9 +209,11 @@ Retrieves the members of a specific team.
 **Endpoint:** `GET /api/teams/{teamId}/members`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `teamId` (path parameter): The unique identifier of the team
 
 **Response:**
@@ -228,9 +238,9 @@ Retrieves the members of a specific team.
       "email": "alex.kim@example.com",
       "avatar": "/avatars/alex-kim.jpg",
       "role": "Senior Research Scientist",
-      "joinDate": "2023-06-12",
+      "joinDate": "2025-06-12",
       "isLead": false
-    },
+    }
     // Additional members...
   ]
 }
@@ -243,9 +253,11 @@ Adds a member to a team.
 **Endpoint:** `POST /api/teams/{teamId}/members`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `teamId` (path parameter): The unique identifier of the team
 
 **Request Body:**
@@ -269,7 +281,7 @@ Adds a member to a team.
     "email": "jane.smith@example.com",
     "avatar": "/avatars/jane-smith.jpg",
     "role": "Data Scientist",
-    "joinDate": "2023-06-15",
+    "joinDate": "2025-06-15",
     "isLead": false
   }
 }
@@ -282,9 +294,11 @@ Removes a member from a team.
 **Endpoint:** `DELETE /api/teams/{teamId}/members/{userId}`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `teamId` (path parameter): The unique identifier of the team
 - `userId` (path parameter): The unique identifier of the user to remove
 
@@ -304,9 +318,11 @@ Updates a team member's role.
 **Endpoint:** `PUT /api/teams/{teamId}/members/{userId}`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `teamId` (path parameter): The unique identifier of the team
 - `userId` (path parameter): The unique identifier of the user
 
@@ -330,7 +346,7 @@ Updates a team member's role.
     "email": "alex.kim@example.com",
     "avatar": "/avatars/alex-kim.jpg",
     "role": "Senior Data Scientist",
-    "joinDate": "2023-06-12",
+    "joinDate": "2025-06-12",
     "isLead": false
   }
 }
@@ -343,9 +359,11 @@ Retrieves the activity log for a specific team or all teams.
 **Endpoint:** `GET /api/teams/activity`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Query Parameters:**
+
 - `teamId` (optional): Filter activities by team ID
 
 **Response:**
@@ -359,7 +377,7 @@ Retrieves the activity log for a specific team or all teams.
       "teamName": "ML Research",
       "action": "member-added",
       "details": "Added Dr. Alex Kim as Senior Research Scientist",
-      "timestamp": "2023-06-12T10:15:30Z",
+      "timestamp": "2025-06-12T10:15:30Z",
       "user": "sarah.chen@example.com"
     },
     {
@@ -368,9 +386,9 @@ Retrieves the activity log for a specific team or all teams.
       "teamName": "Production Inference",
       "action": "resource-allocation",
       "details": "Increased GPU allocation by 120 units",
-      "timestamp": "2023-06-11T15:45:22Z",
+      "timestamp": "2025-06-11T15:45:22Z",
       "user": "michael.r@example.com"
-    },
+    }
     // Additional activities...
   ]
 }
@@ -383,9 +401,11 @@ Updates a team's resource allocation.
 **Endpoint:** `PUT /api/teams/{teamId}/resources`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `teamId` (path parameter): The unique identifier of the team
 
 **Request Body:**
@@ -415,41 +435,41 @@ Updates a team's resource allocation.
 
 ### Team Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| id | string | Unique identifier for the team |
-| name | string | Display name of the team |
-| description | string | Description of the team's purpose |
-| memberCount | number | Number of members in the team |
-| lead | object | Team lead user information |
+| Field              | Type   | Description                                    |
+| ------------------ | ------ | ---------------------------------------------- |
+| id                 | string | Unique identifier for the team                 |
+| name               | string | Display name of the team                       |
+| description        | string | Description of the team's purpose              |
+| memberCount        | number | Number of members in the team                  |
+| lead               | object | Team lead user information                     |
 | resourceAllocation | number | Resource allocation units assigned to the team |
-| activeProjects | number | Number of active projects for the team |
-| tags | array | List of tags associated with the team |
-| createdAt | string | ISO date string when the team was created |
+| activeProjects     | number | Number of active projects for the team         |
+| tags               | array  | List of tags associated with the team          |
+| createdAt          | string | ISO date string when the team was created      |
 
 ### User Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| id | string | Unique identifier for the user |
-| name | string | User's full name |
-| email | string | User's email address |
-| avatar | string | URL to the user's avatar image |
-| role | string | User's role in the team |
-| joinDate | string | ISO date string when the user joined the team |
-| isLead | boolean | Whether the user is the team lead |
+| Field    | Type    | Description                                   |
+| -------- | ------- | --------------------------------------------- |
+| id       | string  | Unique identifier for the user                |
+| name     | string  | User's full name                              |
+| email    | string  | User's email address                          |
+| avatar   | string  | URL to the user's avatar image                |
+| role     | string  | User's role in the team                       |
+| joinDate | string  | ISO date string when the user joined the team |
+| isLead   | boolean | Whether the user is the team lead             |
 
 ### Activity Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| id | string | Unique identifier for the activity |
-| teamId | string | ID of the team this activity relates to |
-| teamName | string | Name of the team this activity relates to |
-| action | string | Type of action (member-added, resource-allocation, etc.) |
-| details | string | Human-readable description of the activity |
-| timestamp | string | ISO timestamp when the activity occurred |
-| user | string | Email of the user who performed the action |
+| Field     | Type   | Description                                              |
+| --------- | ------ | -------------------------------------------------------- |
+| id        | string | Unique identifier for the activity                       |
+| teamId    | string | ID of the team this activity relates to                  |
+| teamName  | string | Name of the team this activity relates to                |
+| action    | string | Type of action (member-added, resource-allocation, etc.) |
+| details   | string | Human-readable description of the activity               |
+| timestamp | string | ISO timestamp when the activity occurred                 |
+| user      | string | Email of the user who performed the action               |
 
 ## Error Responses
 

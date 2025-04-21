@@ -44,8 +44,8 @@ Retrieves a list of all compute pools and summary information.
         { "type": "p3.16xlarge", "count": 16 }
       ],
       "tags": ["ml-training", "high-priority", "production"],
-      "createdAt": "2023-01-15"
-    },
+      "createdAt": "2025-01-15"
+    }
     // Additional pools...
   ]
 }
@@ -58,6 +58,7 @@ Retrieves detailed information about a specific compute pool.
 **Endpoint:** `GET /api/pools/{poolId}`
 
 **Parameters:**
+
 - `poolId` (path parameter): The unique identifier of the compute pool
 
 **Response:**
@@ -80,7 +81,7 @@ Retrieves detailed information about a specific compute pool.
     { "type": "p3.16xlarge", "count": 16 }
   ],
   "tags": ["ml-training", "high-priority", "production"],
-  "createdAt": "2023-01-15"
+  "createdAt": "2025-01-15"
 }
 ```
 
@@ -98,9 +99,7 @@ Creates a new compute pool.
   "description": "Description of the new compute pool",
   "region": "us-west-2",
   "provider": "AWS",
-  "nodeTypes": [
-    { "type": "g5.12xlarge", "count": 8 }
-  ],
+  "nodeTypes": [{ "type": "g5.12xlarge", "count": 8 }],
   "tags": ["development", "testing"]
 }
 ```
@@ -120,11 +119,9 @@ Creates a new compute pool.
   "memoryUtilization": 0,
   "gpuUtilization": 0,
   "networkUtilization": 0,
-  "nodeTypes": [
-    { "type": "g5.12xlarge", "count": 8 }
-  ],
+  "nodeTypes": [{ "type": "g5.12xlarge", "count": 8 }],
   "tags": ["development", "testing"],
-  "createdAt": "2023-06-12"
+  "createdAt": "2025-06-12"
 }
 ```
 
@@ -135,6 +132,7 @@ Updates an existing compute pool.
 **Endpoint:** `PUT /api/pools/{poolId}`
 
 **Parameters:**
+
 - `poolId` (path parameter): The unique identifier of the compute pool
 
 **Request Body:**
@@ -143,9 +141,7 @@ Updates an existing compute pool.
 {
   "name": "Updated Pool Name",
   "description": "Updated description",
-  "nodeTypes": [
-    { "type": "g5.12xlarge", "count": 12 }
-  ],
+  "nodeTypes": [{ "type": "g5.12xlarge", "count": 12 }],
   "tags": ["development", "testing", "updated"]
 }
 ```
@@ -165,11 +161,9 @@ Updates an existing compute pool.
   "memoryUtilization": 0,
   "gpuUtilization": 0,
   "networkUtilization": 0,
-  "nodeTypes": [
-    { "type": "g5.12xlarge", "count": 12 }
-  ],
+  "nodeTypes": [{ "type": "g5.12xlarge", "count": 12 }],
   "tags": ["development", "testing", "updated"],
-  "createdAt": "2023-06-12"
+  "createdAt": "2025-06-12"
 }
 ```
 
@@ -180,6 +174,7 @@ Deletes a compute pool.
 **Endpoint:** `DELETE /api/pools/{poolId}`
 
 **Parameters:**
+
 - `poolId` (path parameter): The unique identifier of the compute pool
 
 **Response:**
@@ -198,6 +193,7 @@ Retrieves the activity log for all pools or a specific pool.
 **Endpoint:** `GET /api/pools/activity`
 
 **Query Parameters:**
+
 - `poolId` (optional): Filter activities by pool ID
 
 **Response:**
@@ -211,9 +207,9 @@ Retrieves the activity log for all pools or a specific pool.
       "poolName": "ML Training Cluster",
       "action": "node-added",
       "details": "Added 8 new p4d.24xlarge nodes",
-      "timestamp": "2023-06-10T14:32:45Z",
+      "timestamp": "2025-06-10T14:32:45Z",
       "user": "admin@example.com"
-    },
+    }
     // Additional activities...
   ]
 }
@@ -223,34 +219,34 @@ Retrieves the activity log for all pools or a specific pool.
 
 ### Pool Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| id | string | Unique identifier for the pool |
-| name | string | Display name of the pool |
-| description | string | Description of the pool's purpose |
-| status | string | Current status (active, initializing, maintenance, etc.) |
-| region | string | Geographic region where the pool is deployed |
-| provider | string | Cloud provider (AWS, GCP, Azure, etc.) |
-| nodeCount | number | Total number of compute nodes in the pool |
-| cpuUtilization | number | Current CPU utilization percentage |
-| memoryUtilization | number | Current memory utilization percentage |
-| gpuUtilization | number | Current GPU utilization percentage |
-| networkUtilization | number | Current network utilization percentage |
-| nodeTypes | array | List of node types and their counts |
-| tags | array | List of tags associated with the pool |
-| createdAt | string | ISO date string when the pool was created |
+| Field              | Type   | Description                                              |
+| ------------------ | ------ | -------------------------------------------------------- |
+| id                 | string | Unique identifier for the pool                           |
+| name               | string | Display name of the pool                                 |
+| description        | string | Description of the pool's purpose                        |
+| status             | string | Current status (active, initializing, maintenance, etc.) |
+| region             | string | Geographic region where the pool is deployed             |
+| provider           | string | Cloud provider (AWS, GCP, Azure, etc.)                   |
+| nodeCount          | number | Total number of compute nodes in the pool                |
+| cpuUtilization     | number | Current CPU utilization percentage                       |
+| memoryUtilization  | number | Current memory utilization percentage                    |
+| gpuUtilization     | number | Current GPU utilization percentage                       |
+| networkUtilization | number | Current network utilization percentage                   |
+| nodeTypes          | array  | List of node types and their counts                      |
+| tags               | array  | List of tags associated with the pool                    |
+| createdAt          | string | ISO date string when the pool was created                |
 
 ### Activity Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| id | string | Unique identifier for the activity |
-| poolId | string | ID of the pool this activity relates to |
-| poolName | string | Name of the pool this activity relates to |
-| action | string | Type of action (node-added, configuration-changed, etc.) |
-| details | string | Human-readable description of the activity |
-| timestamp | string | ISO timestamp when the activity occurred |
-| user | string | User or system that performed the action |
+| Field     | Type   | Description                                              |
+| --------- | ------ | -------------------------------------------------------- |
+| id        | string | Unique identifier for the activity                       |
+| poolId    | string | ID of the pool this activity relates to                  |
+| poolName  | string | Name of the pool this activity relates to                |
+| action    | string | Type of action (node-added, configuration-changed, etc.) |
+| details   | string | Human-readable description of the activity               |
+| timestamp | string | ISO timestamp when the activity occurred                 |
+| user      | string | User or system that performed the action                 |
 
 ## Error Responses
 

@@ -17,6 +17,7 @@ Retrieves the user's profile information.
 **Endpoint:** `GET /api/settings/profile`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Response:**
@@ -40,6 +41,7 @@ Updates the user's profile information.
 **Endpoint:** `PUT /api/settings/profile`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Request Body:**
@@ -79,10 +81,12 @@ Updates the user's avatar image.
 **Endpoint:** `POST /api/settings/profile/avatar`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 - `Content-Type: multipart/form-data`
 
 **Request Body:**
+
 - Form data with `avatar` field containing the image file
 
 **Response:**
@@ -102,6 +106,7 @@ Retrieves the user's notification preferences.
 **Endpoint:** `GET /api/settings/notifications`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Response:**
@@ -124,6 +129,7 @@ Updates the user's notification preferences.
 **Endpoint:** `PUT /api/settings/notifications`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Request Body:**
@@ -163,6 +169,7 @@ Retrieves the user's security settings.
 **Endpoint:** `GET /api/settings/security`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Response:**
@@ -170,22 +177,22 @@ Retrieves the user's security settings.
 ```json
 {
   "twoFactorAuth": true,
-  "lastPasswordChange": "2023-05-10",
+  "lastPasswordChange": "2025-05-10",
   "sessionTimeout": 60,
   "ipRestrictions": false,
   "apiTokens": [
     {
       "id": "token-1",
       "name": "Development API",
-      "created": "2023-04-15",
-      "lastUsed": "2023-06-12",
+      "created": "2025-04-15",
+      "lastUsed": "2025-06-12",
       "scopes": ["read", "write"]
     },
     {
       "id": "token-2",
       "name": "Monitoring Integration",
-      "created": "2023-05-20",
-      "lastUsed": "2023-06-13",
+      "created": "2025-05-20",
+      "lastUsed": "2025-06-13",
       "scopes": ["read"]
     }
   ]
@@ -199,6 +206,7 @@ Updates the user's security settings.
 **Endpoint:** `PUT /api/settings/security`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Request Body:**
@@ -219,7 +227,7 @@ Updates the user's security settings.
   "message": "Security settings updated successfully",
   "settings": {
     "twoFactorAuth": true,
-    "lastPasswordChange": "2023-05-10",
+    "lastPasswordChange": "2025-05-10",
     "sessionTimeout": 45,
     "ipRestrictions": true
   }
@@ -233,6 +241,7 @@ Changes the user's password.
 **Endpoint:** `POST /api/settings/security/password`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Request Body:**
@@ -251,7 +260,7 @@ Changes the user's password.
 {
   "success": true,
   "message": "Password changed successfully",
-  "lastPasswordChange": "2023-06-15"
+  "lastPasswordChange": "2025-06-15"
 }
 ```
 
@@ -262,6 +271,7 @@ Creates a new API token.
 **Endpoint:** `POST /api/settings/security/tokens`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Request Body:**
@@ -283,7 +293,7 @@ Creates a new API token.
     "id": "token-3",
     "name": "New API Token",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...", // Only shown once upon creation
-    "created": "2023-06-15",
+    "created": "2025-06-15",
     "lastUsed": null,
     "scopes": ["read", "write"]
   }
@@ -297,6 +307,7 @@ Revokes an existing API token.
 **Endpoint:** `DELETE /api/settings/security/tokens/{tokenId}`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Response:**
@@ -315,6 +326,7 @@ Retrieves the user's appearance settings.
 **Endpoint:** `GET /api/settings/appearance`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Response:**
@@ -337,6 +349,7 @@ Updates the user's appearance settings.
 **Endpoint:** `PUT /api/settings/appearance`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Request Body:**
@@ -373,57 +386,57 @@ Updates the user's appearance settings.
 
 ### Profile Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| name | string | User's full name |
-| email | string | User's email address |
-| avatar | string | URL to the user's avatar image |
-| role | string | User's role in the organization |
-| team | string | User's team name |
+| Field    | Type   | Description                          |
+| -------- | ------ | ------------------------------------ |
+| name     | string | User's full name                     |
+| email    | string | User's email address                 |
+| avatar   | string | URL to the user's avatar image       |
+| role     | string | User's role in the organization      |
+| team     | string | User's team name                     |
 | joinDate | string | ISO date string when the user joined |
-| bio | string | User's biography or description |
+| bio      | string | User's biography or description      |
 
 ### Notification Settings Object
 
-| Field | Type | Description |
-|-------|------|-------------|
+| Field              | Type    | Description                            |
+| ------------------ | ------- | -------------------------------------- |
 | emailNotifications | boolean | Whether to receive email notifications |
-| pushNotifications | boolean | Whether to receive push notifications |
-| resourceAlerts | boolean | Whether to receive resource alerts |
-| weeklyReports | boolean | Whether to receive weekly reports |
-| maintenanceAlerts | boolean | Whether to receive maintenance alerts |
-| teamUpdates | boolean | Whether to receive team updates |
+| pushNotifications  | boolean | Whether to receive push notifications  |
+| resourceAlerts     | boolean | Whether to receive resource alerts     |
+| weeklyReports      | boolean | Whether to receive weekly reports      |
+| maintenanceAlerts  | boolean | Whether to receive maintenance alerts  |
+| teamUpdates        | boolean | Whether to receive team updates        |
 
 ### Security Settings Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| twoFactorAuth | boolean | Whether two-factor authentication is enabled |
-| lastPasswordChange | string | ISO date string of last password change |
-| sessionTimeout | number | Session timeout in minutes |
-| ipRestrictions | boolean | Whether IP restrictions are enabled |
-| apiTokens | array | List of API tokens |
+| Field              | Type    | Description                                  |
+| ------------------ | ------- | -------------------------------------------- |
+| twoFactorAuth      | boolean | Whether two-factor authentication is enabled |
+| lastPasswordChange | string  | ISO date string of last password change      |
+| sessionTimeout     | number  | Session timeout in minutes                   |
+| ipRestrictions     | boolean | Whether IP restrictions are enabled          |
+| apiTokens          | array   | List of API tokens                           |
 
 ### API Token Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| id | string | Unique identifier for the token |
-| name | string | Display name of the token |
-| created | string | ISO date string when the token was created |
+| Field    | Type   | Description                                  |
+| -------- | ------ | -------------------------------------------- |
+| id       | string | Unique identifier for the token              |
+| name     | string | Display name of the token                    |
+| created  | string | ISO date string when the token was created   |
 | lastUsed | string | ISO date string when the token was last used |
-| scopes | array | List of permission scopes for the token |
+| scopes   | array  | List of permission scopes for the token      |
 
 ### Appearance Settings Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| theme | string | UI theme (light, dark, system) |
-| density | string | Interface density (compact, comfortable, spacious) |
-| animationsEnabled | boolean | Whether animations are enabled |
-| codeHighlighting | boolean | Whether code syntax highlighting is enabled |
-| timezone | string | User's preferred timezone |
-| dateFormat | string | User's preferred date format |
+| Field             | Type    | Description                                        |
+| ----------------- | ------- | -------------------------------------------------- |
+| theme             | string  | UI theme (light, dark, system)                     |
+| density           | string  | Interface density (compact, comfortable, spacious) |
+| animationsEnabled | boolean | Whether animations are enabled                     |
+| codeHighlighting  | boolean | Whether code syntax highlighting is enabled        |
+| timezone          | string  | User's preferred timezone                          |
+| dateFormat        | string  | User's preferred date format                       |
 
 ## Error Responses
 

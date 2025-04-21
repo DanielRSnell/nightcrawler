@@ -16,7 +16,7 @@ const mockWorkflows = [
     description: 'Allocates GPUs for ML model training',
     status: 'active',
     priority: 'high',
-    lastRun: '2023-10-15T10:30:00Z',
+    lastRun: '2025-10-15T10:30:00Z',
   },
   {
     id: 'wf-1002',
@@ -24,7 +24,7 @@ const mockWorkflows = [
     description: 'Handles batch processing jobs on CPU clusters',
     status: 'active',
     priority: 'medium',
-    lastRun: '2023-10-14T08:15:00Z',
+    lastRun: '2025-10-14T08:15:00Z',
   },
   {
     id: 'wf-1003',
@@ -32,7 +32,7 @@ const mockWorkflows = [
     description: 'Manages TPU resources for research teams',
     status: 'inactive',
     priority: 'low',
-    lastRun: '2023-10-10T14:45:00Z',
+    lastRun: '2025-10-10T14:45:00Z',
   },
   {
     id: 'wf-1004',
@@ -40,7 +40,7 @@ const mockWorkflows = [
     description: 'Scales compute resources during peak demand',
     status: 'active',
     priority: 'critical',
-    lastRun: '2023-10-16T09:20:00Z',
+    lastRun: '2025-10-16T09:20:00Z',
   },
   {
     id: 'wf-1005',
@@ -48,7 +48,7 @@ const mockWorkflows = [
     description: 'Processes data during off-peak hours',
     status: 'active',
     priority: 'medium',
-    lastRun: '2023-10-15T23:00:00Z',
+    lastRun: '2025-10-15T23:00:00Z',
   },
 ];
 

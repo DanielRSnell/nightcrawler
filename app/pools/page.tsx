@@ -45,7 +45,7 @@ export default function ComputePoolsPage() {
           { type: 'p3.16xlarge', count: 16 },
         ],
         tags: ['ml-training', 'high-priority', 'production'],
-        createdAt: '2023-01-15',
+        createdAt: '2025-01-15',
       },
       {
         id: 'pool-2',
@@ -64,7 +64,7 @@ export default function ComputePoolsPage() {
           { type: 'g4dn.12xlarge', count: 8 },
         ],
         tags: ['inference', 'production'],
-        createdAt: '2023-02-20',
+        createdAt: '2025-02-20',
       },
       {
         id: 'pool-3',
@@ -83,7 +83,7 @@ export default function ComputePoolsPage() {
           { type: 'tpu-v4-8', count: 8 },
         ],
         tags: ['research', 'tpu', 'experimental'],
-        createdAt: '2023-03-10',
+        createdAt: '2025-03-10',
       },
       {
         id: 'pool-4',
@@ -102,7 +102,7 @@ export default function ComputePoolsPage() {
           { type: 'c6g.4xlarge', count: 4 },
         ],
         tags: ['development', 'sandbox'],
-        createdAt: '2023-04-05',
+        createdAt: '2025-04-05',
       },
       {
         id: 'pool-5',
@@ -121,7 +121,7 @@ export default function ComputePoolsPage() {
           { type: 'r6i.12xlarge', count: 8 },
         ],
         tags: ['data-processing', 'production'],
-        createdAt: '2023-02-28',
+        createdAt: '2025-02-28',
       },
       {
         id: 'pool-6',
@@ -152,7 +152,7 @@ export default function ComputePoolsPage() {
         poolName: 'ML Training Cluster',
         action: 'node-added',
         details: 'Added 8 new p4d.24xlarge nodes',
-        timestamp: '2023-06-10T14:32:45Z',
+        timestamp: '2025-06-10T14:32:45Z',
         user: 'admin@example.com',
       },
       {
@@ -161,7 +161,7 @@ export default function ComputePoolsPage() {
         poolName: 'TPU Research Cluster',
         action: 'configuration-changed',
         details: 'Updated network configuration',
-        timestamp: '2023-06-09T11:15:22Z',
+        timestamp: '2025-06-09T11:15:22Z',
         user: 'researcher@example.com',
       },
       {
@@ -170,7 +170,7 @@ export default function ComputePoolsPage() {
         poolName: 'Inference Fleet',
         action: 'scaling-event',
         details: 'Auto-scaled from 16 to 24 nodes',
-        timestamp: '2023-06-08T18:42:10Z',
+        timestamp: '2025-06-08T18:42:10Z',
         user: 'system',
       },
       {
@@ -179,7 +179,7 @@ export default function ComputePoolsPage() {
         poolName: 'Data Processing Cluster',
         action: 'maintenance',
         details: 'Scheduled maintenance completed',
-        timestamp: '2023-06-07T09:30:00Z',
+        timestamp: '2025-06-07T09:30:00Z',
         user: 'system',
       },
     ],

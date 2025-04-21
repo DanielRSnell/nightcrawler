@@ -22,9 +22,9 @@ const mockWorkflowData = {
       status: 'completed',
       duration: '00:01:23',
       logs: [
-        { timestamp: '2023-06-14T10:00:00Z', message: 'Starting environment preparation...' },
-        { timestamp: '2023-06-14T10:00:30Z', message: 'Allocating resources in AWS Virginia...' },
-        { timestamp: '2023-06-14T10:01:15Z', message: 'Environment setup completed successfully.' },
+        { timestamp: '2025-06-14T10:00:00Z', message: 'Starting environment preparation...' },
+        { timestamp: '2025-06-14T10:00:30Z', message: 'Allocating resources in AWS Virginia...' },
+        { timestamp: '2025-06-14T10:01:15Z', message: 'Environment setup completed successfully.' },
       ],
     },
     {
@@ -33,10 +33,10 @@ const mockWorkflowData = {
       status: 'completed',
       duration: '00:02:45',
       logs: [
-        { timestamp: '2023-06-14T10:01:30Z', message: 'Starting data loading process...' },
-        { timestamp: '2023-06-14T10:02:15Z', message: 'Loading training dataset from S3...' },
-        { timestamp: '2023-06-14T10:03:45Z', message: 'Preprocessing data for training...' },
-        { timestamp: '2023-06-14T10:04:15Z', message: 'Data loading completed successfully.' },
+        { timestamp: '2025-06-14T10:01:30Z', message: 'Starting data loading process...' },
+        { timestamp: '2025-06-14T10:02:15Z', message: 'Loading training dataset from S3...' },
+        { timestamp: '2025-06-14T10:03:45Z', message: 'Preprocessing data for training...' },
+        { timestamp: '2025-06-14T10:04:15Z', message: 'Data loading completed successfully.' },
       ],
     },
     {
@@ -44,10 +44,10 @@ const mockWorkflowData = {
       name: 'Model Training',
       status: 'in-progress',
       logs: [
-        { timestamp: '2023-06-14T10:04:30Z', message: 'Initializing model training...' },
-        { timestamp: '2023-06-14T10:05:00Z', message: 'Distributing workload across GPU nodes...' },
-        { timestamp: '2023-06-14T10:05:30Z', message: 'Training in progress (Epoch 1/10)...' },
-        { timestamp: '2023-06-14T10:06:15Z', message: 'Training in progress (Epoch 2/10)...' },
+        { timestamp: '2025-06-14T10:04:30Z', message: 'Initializing model training...' },
+        { timestamp: '2025-06-14T10:05:00Z', message: 'Distributing workload across GPU nodes...' },
+        { timestamp: '2025-06-14T10:05:30Z', message: 'Training in progress (Epoch 1/10)...' },
+        { timestamp: '2025-06-14T10:06:15Z', message: 'Training in progress (Epoch 2/10)...' },
       ],
     },
     {
@@ -65,8 +65,8 @@ const mockWorkflowData = {
   ],
   totalSteps: 5,
   currentStep: 3,
-  startTime: '2023-06-14T10:00:00Z',
-  estimatedEndTime: '2023-06-14T11:30:00Z',
+  startTime: '2025-06-14T10:00:00Z',
+  estimatedEndTime: '2025-06-14T11:30:00Z',
   resourceUsage: {
     cpu: 65,
     memory: 78,

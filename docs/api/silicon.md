@@ -17,6 +17,7 @@ Retrieves summary information about silicon allocation.
 **Endpoint:** `GET /api/silicon/summary`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Response:**
@@ -37,6 +38,7 @@ Retrieves information about all silicon types.
 **Endpoint:** `GET /api/silicon/types`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Response:**
@@ -91,9 +93,11 @@ Retrieves information about a specific silicon type.
 **Endpoint:** `GET /api/silicon/types/{siliconId}`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `siliconId` (path parameter): The unique identifier of the silicon type
 
 **Response:**
@@ -124,6 +128,7 @@ Retrieves silicon allocations for all teams.
 **Endpoint:** `GET /api/silicon/allocations`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Response:**
@@ -152,7 +157,7 @@ Retrieves silicon allocations for all teams.
         { "siliconId": "cpu-epyc", "units": 20 }
       ],
       "totalAllocation": 520
-    },
+    }
     // Additional team allocations...
   ]
 }
@@ -165,9 +170,11 @@ Retrieves silicon allocations for a specific team.
 **Endpoint:** `GET /api/silicon/allocations/{teamId}`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `teamId` (path parameter): The unique identifier of the team
 
 **Response:**
@@ -177,25 +184,25 @@ Retrieves silicon allocations for a specific team.
   "teamId": "team-1",
   "teamName": "ML Research",
   "allocations": [
-    { 
-      "siliconId": "gpu-a100", 
+    {
+      "siliconId": "gpu-a100",
       "siliconName": "NVIDIA A100",
-      "units": 450 
+      "units": 450
     },
-    { 
-      "siliconId": "gpu-h100", 
+    {
+      "siliconId": "gpu-h100",
       "siliconName": "NVIDIA H100",
-      "units": 200 
+      "units": 200
     },
-    { 
-      "siliconId": "tpu-v4", 
+    {
+      "siliconId": "tpu-v4",
       "siliconName": "Google TPU v4",
-      "units": 100 
+      "units": 100
     },
-    { 
-      "siliconId": "cpu-epyc", 
+    {
+      "siliconId": "cpu-epyc",
       "siliconName": "AMD EPYC",
-      "units": 30 
+      "units": 30
     }
   ],
   "totalAllocation": 780
@@ -209,9 +216,11 @@ Updates silicon allocation for a specific team.
 **Endpoint:** `PUT /api/silicon/allocations/{teamId}`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `teamId` (path parameter): The unique identifier of the team
 
 **Request Body:**
@@ -253,9 +262,11 @@ Retrieves all silicon allocation requests.
 **Endpoint:** `GET /api/silicon/requests`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Query Parameters:**
+
 - `status` (optional): Filter requests by status (approved, pending, rejected)
 - `teamId` (optional): Filter requests by team ID
 
@@ -272,8 +283,8 @@ Retrieves all silicon allocation requests.
       "siliconName": "NVIDIA H100",
       "requestedUnits": 50,
       "status": "approved",
-      "requestDate": "2023-06-10",
-      "approvalDate": "2023-06-11"
+      "requestDate": "2025-06-10",
+      "approvalDate": "2025-06-11"
     },
     {
       "id": "req-1002",
@@ -283,8 +294,8 @@ Retrieves all silicon allocation requests.
       "siliconName": "NVIDIA A100",
       "requestedUnits": 30,
       "status": "pending",
-      "requestDate": "2023-06-12"
-    },
+      "requestDate": "2025-06-12"
+    }
     // Additional requests...
   ]
 }
@@ -297,9 +308,11 @@ Retrieves a specific silicon allocation request.
 **Endpoint:** `GET /api/silicon/requests/{requestId}`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `requestId` (path parameter): The unique identifier of the allocation request
 
 **Response:**
@@ -313,8 +326,8 @@ Retrieves a specific silicon allocation request.
   "siliconName": "NVIDIA H100",
   "requestedUnits": 50,
   "status": "approved",
-  "requestDate": "2023-06-10",
-  "approvalDate": "2023-06-11",
+  "requestDate": "2025-06-10",
+  "approvalDate": "2025-06-11",
   "requestedBy": "sarah.chen@example.com",
   "approvedBy": "admin@example.com",
   "justification": "Needed for training larger models with better performance",
@@ -329,6 +342,7 @@ Creates a new silicon allocation request.
 **Endpoint:** `POST /api/silicon/requests`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Request Body:**
@@ -356,7 +370,7 @@ Creates a new silicon allocation request.
     "siliconName": "NVIDIA H100",
     "requestedUnits": 50,
     "status": "pending",
-    "requestDate": "2023-06-15",
+    "requestDate": "2025-06-15",
     "requestedBy": "sarah.chen@example.com",
     "justification": "Needed for training larger models with better performance"
   }
@@ -370,9 +384,11 @@ Updates the status of a silicon allocation request.
 **Endpoint:** `PUT /api/silicon/requests/{requestId}`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Parameters:**
+
 - `requestId` (path parameter): The unique identifier of the allocation request
 
 **Request Body:**
@@ -398,8 +414,8 @@ Updates the status of a silicon allocation request.
     "siliconName": "NVIDIA A100",
     "requestedUnits": 30,
     "status": "approved",
-    "requestDate": "2023-06-12",
-    "approvalDate": "2023-06-15",
+    "requestDate": "2025-06-12",
+    "approvalDate": "2025-06-15",
     "requestedBy": "michael.r@example.com",
     "approvedBy": "admin@example.com",
     "notes": "Approved for immediate allocation"
@@ -414,9 +430,11 @@ Retrieves the history of silicon allocations.
 **Endpoint:** `GET /api/silicon/history`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Query Parameters:**
+
 - `teamId` (optional): Filter history by team ID
 - `siliconId` (optional): Filter history by silicon type ID
 - `startDate` (optional): Filter history by start date (ISO format)
@@ -436,7 +454,7 @@ Retrieves the history of silicon allocations.
       "action": "allocation-increase",
       "previousUnits": 150,
       "newUnits": 200,
-      "timestamp": "2023-06-11T14:30:00Z",
+      "timestamp": "2025-06-11T14:30:00Z",
       "requestId": "req-1001",
       "performedBy": "admin@example.com"
     },
@@ -449,10 +467,10 @@ Retrieves the history of silicon allocations.
       "action": "allocation-increase",
       "previousUnits": 20,
       "newUnits": 30,
-      "timestamp": "2023-06-09T11:45:00Z",
+      "timestamp": "2025-06-09T11:45:00Z",
       "requestId": "req-1003",
       "performedBy": "admin@example.com"
-    },
+    }
     // Additional history entries...
   ]
 }
@@ -465,9 +483,11 @@ Retrieves silicon utilization data for visualization.
 **Endpoint:** `GET /api/silicon/utilization`
 
 **Headers:**
+
 - `Authorization: Bearer {token}`
 
 **Query Parameters:**
+
 - `siliconId` (optional): Filter utilization by silicon type ID
 - `period` (optional): Time period for data (day, week, month)
 
@@ -478,7 +498,7 @@ Retrieves silicon utilization data for visualization.
   "period": "week",
   "data": [
     {
-      "timestamp": "2023-06-08T00:00:00Z",
+      "timestamp": "2025-06-08T00:00:00Z",
       "utilization": {
         "gpu-a100": 79.2,
         "gpu-h100": 72.5,
@@ -487,14 +507,14 @@ Retrieves silicon utilization data for visualization.
       }
     },
     {
-      "timestamp": "2023-06-09T00:00:00Z",
+      "timestamp": "2025-06-09T00:00:00Z",
       "utilization": {
         "gpu-a100": 80.1,
         "gpu-h100": 73.8,
         "tpu-v4": 59.2,
         "cpu-epyc": 25.8
       }
-    },
+    }
     // Additional data points...
   ]
 }
@@ -504,70 +524,70 @@ Retrieves silicon utilization data for visualization.
 
 ### Silicon Type Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| id | string | Unique identifier for the silicon type |
-| name | string | Display name of the silicon type |
-| totalUnits | number | Total units available |
-| allocatedUnits | number | Units currently allocated |
-| availableUnits | number | Units available for allocation |
-| utilizationRate | number | Current utilization percentage |
-| icon | string | Icon name for UI representation |
-| description | string | Detailed description of the silicon type |
-| specs | object | Technical specifications of the silicon type |
+| Field           | Type   | Description                                  |
+| --------------- | ------ | -------------------------------------------- |
+| id              | string | Unique identifier for the silicon type       |
+| name            | string | Display name of the silicon type             |
+| totalUnits      | number | Total units available                        |
+| allocatedUnits  | number | Units currently allocated                    |
+| availableUnits  | number | Units available for allocation               |
+| utilizationRate | number | Current utilization percentage               |
+| icon            | string | Icon name for UI representation              |
+| description     | string | Detailed description of the silicon type     |
+| specs           | object | Technical specifications of the silicon type |
 
 ### Team Allocation Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| teamId | string | Unique identifier for the team |
-| teamName | string | Name of the team |
-| allocations | array | List of silicon allocations for the team |
-| totalAllocation | number | Total units allocated to the team |
+| Field           | Type   | Description                              |
+| --------------- | ------ | ---------------------------------------- |
+| teamId          | string | Unique identifier for the team           |
+| teamName        | string | Name of the team                         |
+| allocations     | array  | List of silicon allocations for the team |
+| totalAllocation | number | Total units allocated to the team        |
 
 ### Allocation Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| siliconId | string | Unique identifier for the silicon type |
-| siliconName | string | Name of the silicon type |
-| units | number | Number of units allocated |
+| Field       | Type   | Description                            |
+| ----------- | ------ | -------------------------------------- |
+| siliconId   | string | Unique identifier for the silicon type |
+| siliconName | string | Name of the silicon type               |
+| units       | number | Number of units allocated              |
 
 ### Allocation Request Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| id | string | Unique identifier for the request |
-| teamId | string | ID of the team requesting allocation |
-| teamName | string | Name of the team requesting allocation |
-| siliconId | string | ID of the requested silicon type |
-| siliconName | string | Name of the requested silicon type |
-| requestedUnits | number | Number of units requested |
-| status | string | Status of the request (pending, approved, rejected) |
-| requestDate | string | ISO date string when the request was created |
-| approvalDate | string | ISO date string when the request was approved (if applicable) |
-| rejectionDate | string | ISO date string when the request was rejected (if applicable) |
-| rejectionReason | string | Reason for rejection (if applicable) |
-| requestedBy | string | Email of the user who created the request |
-| approvedBy | string | Email of the user who approved the request (if applicable) |
-| justification | string | Justification for the allocation request |
-| notes | string | Additional notes about the request |
+| Field           | Type   | Description                                                   |
+| --------------- | ------ | ------------------------------------------------------------- |
+| id              | string | Unique identifier for the request                             |
+| teamId          | string | ID of the team requesting allocation                          |
+| teamName        | string | Name of the team requesting allocation                        |
+| siliconId       | string | ID of the requested silicon type                              |
+| siliconName     | string | Name of the requested silicon type                            |
+| requestedUnits  | number | Number of units requested                                     |
+| status          | string | Status of the request (pending, approved, rejected)           |
+| requestDate     | string | ISO date string when the request was created                  |
+| approvalDate    | string | ISO date string when the request was approved (if applicable) |
+| rejectionDate   | string | ISO date string when the request was rejected (if applicable) |
+| rejectionReason | string | Reason for rejection (if applicable)                          |
+| requestedBy     | string | Email of the user who created the request                     |
+| approvedBy      | string | Email of the user who approved the request (if applicable)    |
+| justification   | string | Justification for the allocation request                      |
+| notes           | string | Additional notes about the request                            |
 
 ### History Entry Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| id | string | Unique identifier for the history entry |
-| teamId | string | ID of the team involved |
-| teamName | string | Name of the team involved |
-| siliconId | string | ID of the silicon type involved |
-| siliconName | string | Name of the silicon type involved |
-| action | string | Type of action (allocation-increase, allocation-decrease, etc.) |
-| previousUnits | number | Previous allocation units |
-| newUnits | number | New allocation units |
-| timestamp | string | ISO timestamp when the action occurred |
-| requestId | string | ID of the related allocation request (if applicable) |
-| performedBy | string | Email of the user who performed the action |
+| Field         | Type   | Description                                                     |
+| ------------- | ------ | --------------------------------------------------------------- |
+| id            | string | Unique identifier for the history entry                         |
+| teamId        | string | ID of the team involved                                         |
+| teamName      | string | Name of the team involved                                       |
+| siliconId     | string | ID of the silicon type involved                                 |
+| siliconName   | string | Name of the silicon type involved                               |
+| action        | string | Type of action (allocation-increase, allocation-decrease, etc.) |
+| previousUnits | number | Previous allocation units                                       |
+| newUnits      | number | New allocation units                                            |
+| timestamp     | string | ISO timestamp when the action occurred                          |
+| requestId     | string | ID of the related allocation request (if applicable)            |
+| performedBy   | string | Email of the user who performed the action                      |
 
 ## Error Responses
 

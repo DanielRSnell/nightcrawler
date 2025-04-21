@@ -7,14 +7,17 @@ This document outlines the API endpoints for managing workflows in the Nightcraw
 ### Workflow Management
 
 #### `GET /api/workflows`
+
 Retrieves a list of all workflows and summary information.
 
 **Query Parameters:**
+
 - `status` (optional): Filter workflows by status (active, inactive, etc.)
 - `priority` (optional): Filter workflows by priority (high, medium, low, critical)
 - `search` (optional): Search term to filter workflows by name or description
 
 **Response:**
+
 ```json
 {
   "workflows": [
@@ -24,8 +27,8 @@ Retrieves a list of all workflows and summary information.
       "description": "Allocates GPUs for ML model training",
       "status": "active",
       "priority": "high",
-      "lastRun": "2023-10-15T10:30:00Z"
-    },
+      "lastRun": "2025-10-15T10:30:00Z"
+    }
     // Additional workflows...
   ],
   "total": 5,
@@ -35,9 +38,11 @@ Retrieves a list of all workflows and summary information.
 ```
 
 #### `GET /api/workflows/{workflowId}`
+
 Retrieves detailed information about a specific workflow.
 
 **Response:**
+
 ```json
 {
   "id": "wf-1001",
@@ -46,8 +51,8 @@ Retrieves detailed information about a specific workflow.
   "status": "active",
   "priority": "high",
   "creator": "John Doe",
-  "createdAt": "2023-06-15T10:30:00Z",
-  "lastRun": "2023-07-10T14:45:00Z",
+  "createdAt": "2025-06-15T10:30:00Z",
+  "lastRun": "2025-07-10T14:45:00Z",
   "environments": ["production", "staging"],
   "tags": ["machine-learning", "computer-vision", "training"],
   "steps": [
@@ -99,9 +104,11 @@ Retrieves detailed information about a specific workflow.
 ```
 
 #### `POST /api/workflows`
+
 Creates a new workflow.
 
 **Request Body:**
+
 ```json
 {
   "name": "New ML Training Pipeline",
@@ -122,6 +129,7 @@ Creates a new workflow.
 ```
 
 **Response:**
+
 ```json
 {
   "id": "wf-1006",
@@ -130,14 +138,16 @@ Creates a new workflow.
   "status": "inactive",
   "priority": "medium",
   "creator": "John Doe",
-  "createdAt": "2023-10-17T14:30:00Z"
+  "createdAt": "2025-10-17T14:30:00Z"
 }
 ```
 
 #### `PUT /api/workflows/{workflowId}`
+
 Updates an existing workflow.
 
 **Request Body:**
+
 ```json
 {
   "name": "Updated ML Training Pipeline",
@@ -152,6 +162,7 @@ Updates an existing workflow.
 ```
 
 **Response:**
+
 ```json
 {
   "id": "wf-1001",
@@ -159,14 +170,16 @@ Updates an existing workflow.
   "description": "Updated description for the workflow",
   "status": "active",
   "priority": "high",
-  "updatedAt": "2023-10-17T15:45:00Z"
+  "updatedAt": "2025-10-17T15:45:00Z"
 }
 ```
 
 #### `DELETE /api/workflows/{workflowId}`
+
 Deletes a workflow.
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -177,9 +190,11 @@ Deletes a workflow.
 ### Workflow Execution
 
 #### `POST /api/workflows/{workflowId}/execute`
+
 Executes a workflow.
 
 **Request Body:**
+
 ```json
 {
   "environment": "production",
@@ -192,33 +207,37 @@ Executes a workflow.
 ```
 
 **Response:**
+
 ```json
 {
   "executionId": "exec-5002",
   "workflowId": "wf-1001",
   "status": "running",
-  "startTime": "2023-10-17T16:00:00Z",
+  "startTime": "2025-10-17T16:00:00Z",
   "estimatedDuration": "01:15:00"
 }
 ```
 
 #### `GET /api/workflows/{workflowId}/executions`
+
 Retrieves execution history for a specific workflow.
 
 **Query Parameters:**
+
 - `status` (optional): Filter executions by status (completed, failed, running)
 - `limit` (optional): Limit the number of executions returned
 - `offset` (optional): Offset for pagination
 
 **Response:**
+
 ```json
 {
   "executions": [
     {
       "id": "exec-5001",
       "status": "completed",
-      "startTime": "2023-07-10T14:45:00Z",
-      "endTime": "2023-07-10T16:01:25Z",
+      "startTime": "2025-07-10T14:45:00Z",
+      "endTime": "2025-07-10T16:01:25Z",
       "duration": "01:16:25",
       "executor": "John Doe",
       "resourceUsage": {
@@ -230,12 +249,12 @@ Retrieves execution history for a specific workflow.
     {
       "id": "exec-4892",
       "status": "failed",
-      "startTime": "2023-07-05T09:30:00Z",
-      "endTime": "2023-07-05T10:15:45Z",
+      "startTime": "2025-07-05T09:30:00Z",
+      "endTime": "2025-07-05T10:15:45Z",
       "duration": "00:45:45",
       "executor": "John Doe",
       "error": "GPU memory allocation failed during training step"
-    },
+    }
     // Additional executions...
   ],
   "total": 3,
@@ -245,16 +264,18 @@ Retrieves execution history for a specific workflow.
 ```
 
 #### `GET /api/workflows/{workflowId}/executions/{executionId}`
+
 Retrieves detailed information about a specific workflow execution.
 
 **Response:**
+
 ```json
 {
   "id": "exec-5001",
   "workflowId": "wf-1001",
   "status": "completed",
-  "startTime": "2023-07-10T14:45:00Z",
-  "endTime": "2023-07-10T16:01:25Z",
+  "startTime": "2025-07-10T14:45:00Z",
+  "endTime": "2025-07-10T16:01:25Z",
   "duration": "01:16:25",
   "executor": "John Doe",
   "resourceUsage": {
@@ -266,16 +287,32 @@ Retrieves detailed information about a specific workflow execution.
     {
       "name": "Data Preparation",
       "status": "completed",
-      "startTime": "2023-07-10T14:45:00Z",
-      "endTime": "2023-07-10T14:55:25Z",
+      "startTime": "2025-07-10T14:45:00Z",
+      "endTime": "2025-07-10T14:55:25Z",
       "duration": "00:10:25",
       "logs": [
-        { "timestamp": "14:45:10", "level": "info", "message": "Starting data preparation..." },
-        { "timestamp": "14:47:30", "level": "info", "message": "Downloading ImageNet dataset..." },
-        { "timestamp": "14:52:15", "level": "info", "message": "Preprocessing images..." },
-        { "timestamp": "14:55:20", "level": "info", "message": "Data preparation completed successfully." }
+        {
+          "timestamp": "14:45:10",
+          "level": "info",
+          "message": "Starting data preparation..."
+        },
+        {
+          "timestamp": "14:47:30",
+          "level": "info",
+          "message": "Downloading ImageNet dataset..."
+        },
+        {
+          "timestamp": "14:52:15",
+          "level": "info",
+          "message": "Preprocessing images..."
+        },
+        {
+          "timestamp": "14:55:20",
+          "level": "info",
+          "message": "Data preparation completed successfully."
+        }
       ]
-    },
+    }
     // Additional step executions...
   ],
   "parameters": {
@@ -287,9 +324,11 @@ Retrieves detailed information about a specific workflow execution.
 ```
 
 #### `POST /api/workflows/{workflowId}/executions/{executionId}/cancel`
+
 Cancels a running workflow execution.
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -302,13 +341,14 @@ Cancels a running workflow execution.
 ## Data Models
 
 ### Workflow
+
 ```typescript
 interface Workflow {
   id: string;
   name: string;
   description: string;
-  status: 'active' | 'inactive';
-  priority: 'low' | 'medium' | 'high' | 'critical';
+  status: "active" | "inactive";
+  priority: "low" | "medium" | "high" | "critical";
   creator: string;
   createdAt: string;
   lastRun?: string;
@@ -320,15 +360,17 @@ interface Workflow {
 ```
 
 ### WorkflowStep
+
 ```typescript
 interface WorkflowStep {
   name: string;
-  status: 'pending' | 'running' | 'completed' | 'failed';
+  status: "pending" | "running" | "completed" | "failed";
   duration?: string;
 }
 ```
 
 ### WorkflowConfig
+
 ```typescript
 interface WorkflowConfig {
   timeout: string;
@@ -351,7 +393,7 @@ interface WorkflowConfig {
   };
   notificationEvents?: string[];
   schedule?: {
-    type: 'cron' | 'interval';
+    type: "cron" | "interval";
     cron?: string;
     interval?: string;
     description: string;
@@ -359,7 +401,7 @@ interface WorkflowConfig {
     catchUp: boolean;
   };
   security?: {
-    visibility: 'Private' | 'Team' | 'Public';
+    visibility: "Private" | "Team" | "Public";
     auditLogging: boolean;
     secureSecrets: boolean;
     permissions: {
@@ -371,11 +413,12 @@ interface WorkflowConfig {
 ```
 
 ### WorkflowExecution
+
 ```typescript
 interface WorkflowExecution {
   id: string;
   workflowId: string;
-  status: 'running' | 'completed' | 'failed' | 'cancelled';
+  status: "running" | "completed" | "failed" | "cancelled";
   startTime: string;
   endTime?: string;
   duration?: string;
@@ -392,17 +435,18 @@ interface WorkflowExecution {
 ```
 
 ### StepExecution
+
 ```typescript
 interface StepExecution {
   name: string;
-  status: 'running' | 'completed' | 'failed';
+  status: "running" | "completed" | "failed";
   startTime: string;
   endTime?: string;
   duration?: string;
   error?: string;
   logs?: {
     timestamp: string;
-    level: 'info' | 'warning' | 'error';
+    level: "info" | "warning" | "error";
     message: string;
   }[];
 }

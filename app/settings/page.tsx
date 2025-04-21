@@ -46,22 +46,22 @@ export default function SettingsPage() {
   // Mock security settings
   const securitySettings = {
     twoFactorAuth: true,
-    lastPasswordChange: '2023-05-10',
+    lastPasswordChange: '2025-05-10',
     sessionTimeout: 60,
     ipRestrictions: false,
     apiTokens: [
       {
         id: 'token-1',
         name: 'Development API',
-        created: '2023-04-15',
-        lastUsed: '2023-06-12',
+        created: '2025-04-15',
+        lastUsed: '2025-06-12',
         scopes: ['read', 'write'],
       },
       {
         id: 'token-2',
         name: 'Monitoring Integration',
-        created: '2023-05-20',
-        lastUsed: '2023-06-13',
+        created: '2025-05-20',
+        lastUsed: '2025-06-13',
         scopes: ['read'],
       },
     ],

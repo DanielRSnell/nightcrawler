@@ -94,7 +94,7 @@ export default function TeamsPage() {
         resourceAllocation: 120,
         activeProjects: 3,
         tags: ['platform', 'infrastructure', 'devops'],
-        createdAt: '2023-01-20',
+        createdAt: '2025-01-20',
       },
       {
         id: 'team-5',
@@ -111,7 +111,7 @@ export default function TeamsPage() {
         resourceAllocation: 50,
         activeProjects: 2,
         tags: ['applied-ai', 'business-solutions'],
-        createdAt: '2023-03-08',
+        createdAt: '2025-03-08',
       },
     ],
     
@@ -123,7 +123,7 @@ export default function TeamsPage() {
         teamName: 'ML Research',
         action: 'member-added',
         details: 'Added Dr. Alex Kim as Senior Research Scientist',
-        timestamp: '2023-06-12T10:15:30Z',
+        timestamp: '2025-06-12T10:15:30Z',
         user: 'sarah.chen@example.com',
       },
       {
@@ -132,7 +132,7 @@ export default function TeamsPage() {
         teamName: 'Production Inference',
         action: 'resource-allocation',
         details: 'Increased GPU allocation by 120 units',
-        timestamp: '2023-06-11T15:45:22Z',
+        timestamp: '2025-06-11T15:45:22Z',
         user: 'michael.r@example.com',
       },
       {
@@ -141,7 +141,7 @@ export default function TeamsPage() {
         teamName: 'Data Engineering',
         action: 'project-created',
         details: 'Created new project: "Real-time Feature Store"',
-        timestamp: '2023-06-10T09:30:15Z',
+        timestamp: '2025-06-10T09:30:15Z',
         user: 'priya.s@example.com',
       },
       {
@@ -150,7 +150,7 @@ export default function TeamsPage() {
         teamName: 'Platform Team',
         action: 'permission-changed',
         details: 'Updated access permissions for production environments',
-        timestamp: '2023-06-09T14:20:45Z',
+        timestamp: '2025-06-09T14:20:45Z',
         user: 'james.w@example.com',
       },
     ],
@@ -172,7 +172,7 @@ export default function TeamsPage() {
           email: 'alex.kim@example.com',
           avatar: '/avatars/alex-kim.jpg',
           role: 'Senior Research Scientist',
-          joinDate: '2023-06-12',
+          joinDate: '2025-06-12',
         },
         {
           id: 'user-107',
@@ -196,7 +196,7 @@ export default function TeamsPage() {
           email: 'olivia.b@example.com',
           avatar: '/avatars/olivia-brown.jpg',
           role: 'Data Scientist',
-          joinDate: '2023-01-10',
+          joinDate: '2025-01-10',
         },
       ],
     },

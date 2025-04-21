@@ -35,8 +35,8 @@ export function WorkflowView() {
           status: 'active',
           priority: 'high',
           creator: 'John Doe',
-          createdAt: '2023-06-15T10:30:00Z',
-          lastRun: '2023-07-10T14:45:00Z',
+          createdAt: '2025-06-15T10:30:00Z',
+          lastRun: '2025-07-10T14:45:00Z',
           environments: ['production', 'staging'],
           tags: ['machine-learning', 'computer-vision', 'training'],
           steps: [
@@ -50,8 +50,8 @@ export function WorkflowView() {
             {
               id: 'exec-5001',
               status: 'completed',
-              startTime: '2023-07-10T14:45:00Z',
-              endTime: '2023-07-10T16:01:25Z',
+              startTime: '2025-07-10T14:45:00Z',
+              endTime: '2025-07-10T16:01:25Z',
               duration: '01:16:25',
               executor: 'John Doe',
               resourceUsage: {
@@ -63,8 +63,8 @@ export function WorkflowView() {
                 {
                   name: 'Data Preparation',
                   status: 'completed',
-                  startTime: '2023-07-10T14:45:00Z',
-                  endTime: '2023-07-10T14:55:25Z',
+                  startTime: '2025-07-10T14:45:00Z',
+                  endTime: '2025-07-10T14:55:25Z',
                   duration: '00:10:25',
                   logs: [
                     { timestamp: '14:45:10', level: 'info', message: 'Starting data preparation...' },
@@ -76,8 +76,8 @@ export function WorkflowView() {
                 {
                   name: 'Model Training',
                   status: 'completed',
-                  startTime: '2023-07-10T14:55:30Z',
-                  endTime: '2023-07-10T15:41:00Z',
+                  startTime: '2025-07-10T14:55:30Z',
+                  endTime: '2025-07-10T15:41:00Z',
                   duration: '00:45:30',
                   logs: [
                     { timestamp: '14:55:35', level: 'info', message: 'Initializing training environment...' },
@@ -90,8 +90,8 @@ export function WorkflowView() {
                 {
                   name: 'Model Evaluation',
                   status: 'completed',
-                  startTime: '2023-07-10T15:41:05Z',
-                  endTime: '2023-07-10T15:56:15Z',
+                  startTime: '2025-07-10T15:41:05Z',
+                  endTime: '2025-07-10T15:56:15Z',
                   duration: '00:15:10',
                   logs: [
                     { timestamp: '15:41:10', level: 'info', message: 'Starting model evaluation...' },
@@ -102,8 +102,8 @@ export function WorkflowView() {
                 {
                   name: 'Model Export',
                   status: 'completed',
-                  startTime: '2023-07-10T15:56:20Z',
-                  endTime: '2023-07-10T16:01:25Z',
+                  startTime: '2025-07-10T15:56:20Z',
+                  endTime: '2025-07-10T16:01:25Z',
                   duration: '00:05:45',
                   logs: [
                     { timestamp: '15:56:25', level: 'info', message: 'Exporting model to ONNX format...' },
@@ -116,8 +116,8 @@ export function WorkflowView() {
             {
               id: 'exec-4892',
               status: 'failed',
-              startTime: '2023-07-05T09:30:00Z',
-              endTime: '2023-07-05T10:15:45Z',
+              startTime: '2025-07-05T09:30:00Z',
+              endTime: '2025-07-05T10:15:45Z',
               duration: '00:45:45',
               executor: 'John Doe',
               error: 'GPU memory allocation failed during training step',
@@ -130,8 +130,8 @@ export function WorkflowView() {
                 {
                   name: 'Data Preparation',
                   status: 'completed',
-                  startTime: '2023-07-05T09:30:00Z',
-                  endTime: '2023-07-05T09:40:15Z',
+                  startTime: '2025-07-05T09:30:00Z',
+                  endTime: '2025-07-05T09:40:15Z',
                   duration: '00:10:15',
                   logs: [
                     { timestamp: '09:30:05', level: 'info', message: 'Starting data preparation...' },
@@ -141,8 +141,8 @@ export function WorkflowView() {
                 {
                   name: 'Model Training',
                   status: 'failed',
-                  startTime: '2023-07-05T09:40:20Z',
-                  endTime: '2023-07-05T10:15:45Z',
+                  startTime: '2025-07-05T09:40:20Z',
+                  endTime: '2025-07-05T10:15:45Z',
                   duration: '00:35:25',
                   error: 'GPU memory allocation failed: CUDA out of memory',
                   logs: [
@@ -157,8 +157,8 @@ export function WorkflowView() {
             {
               id: 'exec-4756',
               status: 'completed',
-              startTime: '2023-06-28T13:15:00Z',
-              endTime: '2023-06-28T14:32:10Z',
+              startTime: '2025-06-28T13:15:00Z',
+              endTime: '2025-06-28T14:32:10Z',
               duration: '01:17:10',
               executor: 'Jane Smith',
               resourceUsage: {
@@ -214,8 +214,8 @@ export function WorkflowView() {
           status: 'inactive',
           priority: 'medium',
           creator: 'Jane Smith',
-          createdAt: '2023-05-20T08:15:00Z',
-          lastRun: '2023-06-15T11:30:00Z',
+          createdAt: '2025-05-20T08:15:00Z',
+          lastRun: '2025-06-15T11:30:00Z',
           environments: ['development'],
           tags: ['nlp', 'data-processing'],
           steps: [
@@ -228,8 +228,8 @@ export function WorkflowView() {
             {
               id: 'exec-4501',
               status: 'failed',
-              startTime: '2023-06-15T11:30:00Z',
-              endTime: '2023-06-15T12:26:50Z',
+              startTime: '2025-06-15T11:30:00Z',
+              endTime: '2025-06-15T12:26:50Z',
               duration: '00:56:50',
               executor: 'System',
               error: 'Memory limit exceeded during feature extraction',
@@ -242,8 +242,8 @@ export function WorkflowView() {
             {
               id: 'exec-4350',
               status: 'completed',
-              startTime: '2023-06-01T09:45:00Z',
-              endTime: '2023-06-01T10:41:30Z',
+              startTime: '2025-06-01T09:45:00Z',
+              endTime: '2025-06-01T10:41:30Z',
               duration: '00:56:30',
               executor: 'Jane Smith',
               resourceUsage: {

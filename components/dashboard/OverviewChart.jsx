@@ -11,32 +11,32 @@ export function OverviewChart({ chartData, className }) {
   const fixedContainerHeight = 5 * 60 + 24; // 324px
   // Default data if none provided
   const defaultData = {
-    title: 'Silicon Allocation',
-    subtitle: 'Real-time utilization',
-    yAxisLabel: 'Units',
+    title: 'System Resource Utilization',
+    subtitle: 'Real-time resource metrics',
+    yAxisLabel: 'Bytes',
     series: [
       {
-        name: 'GPU A100',
+        name: 'GPU Utilization',
         color: 'rgba(56, 189, 248, 1)',
         baseValue: 650,
         variance: 30
       },
       {
-        name: 'GPU H100',
+        name: 'CPU Utilization',
         color: 'rgba(62, 207, 142, 1)',
         baseValue: 450,
         variance: 25
       },
       {
-        name: 'TPU v4',
+        name: 'Memory Utilization',
         color: 'rgba(255, 220, 50, 1)',
-        baseValue: 280,
+        baseValue: 300,
         variance: 20
       },
       {
-        name: 'CPU EPYC',
+        name: 'Max Memory Usage',
         color: 'rgba(255, 65, 105, 1)',
-        baseValue: 210,
+        baseValue: 200,
         variance: 15
       }
     ]
@@ -63,9 +63,17 @@ export function OverviewChart({ chartData, className }) {
   const [currentTime, setCurrentTime] = useState(new Date());
   const maxDataPoints = 60; // Show last 60 seconds
   
-  // Generate random fluctuation within variance range
-  const generateRandomFluctuation = (baseValue, variance) => {
-    return baseValue + (Math.random() * variance * 2 - variance);
+  // Generate random fluctuation around a base value
+  const generateRandomFluctuation = (base, variance) => {
+    return base + Math.random() * variance * 2 - variance;
+  };
+  
+  // Map series names to data keys for the tooltip
+  const seriesNameToDataKey = {
+    'GPU Utilization': 'gpu_utilization',
+    'CPU Utilization': 'cpu_utilization',
+    'Memory Utilization': 'memory_utilization',
+    'Max Memory Usage': 'max_memory_usage'
   };
   
   // Initialize time series data
@@ -84,7 +92,8 @@ export function OverviewChart({ chartData, className }) {
       
       // Add values for each series
       seriesConfig.forEach(s => {
-        const key = s.name.toLowerCase().replace(/\s+/g, '_');
+        // Use the mapping for consistent keys with the tooltip
+        const key = seriesNameToDataKey[s.name] || s.name.toLowerCase().replace(/\s+/g, '_');
         dataPoint[key] = generateRandomFluctuation(s.baseValue, s.variance);
       });
       
@@ -111,7 +120,8 @@ export function OverviewChart({ chartData, className }) {
       
       // Add values for each series
       seriesConfig.forEach(s => {
-        const key = s.name.toLowerCase().replace(/\s+/g, '_');
+        // Use the mapping for consistent keys with the tooltip
+        const key = seriesNameToDataKey[s.name] || s.name.toLowerCase().replace(/\s+/g, '_');
         newDataPoint[key] = generateRandomFluctuation(s.baseValue, s.variance);
       });
       
@@ -134,7 +144,8 @@ export function OverviewChart({ chartData, className }) {
   // Create chart config for shadcn/ui chart
   const chartConfig = useMemo(() => {
     return seriesConfig.reduce((config, s) => {
-      const key = s.name.toLowerCase().replace(/\s+/g, '_');
+      // Use the mapping for consistent keys with the tooltip
+      const key = seriesNameToDataKey[s.name] || s.name.toLowerCase().replace(/\s+/g, '_');
       config[key] = {
         label: s.name,
         color: s.color
@@ -166,7 +177,8 @@ export function OverviewChart({ chartData, className }) {
             >
               <defs>
                 {seriesConfig.map((s) => {
-                  const dataKey = s.name.toLowerCase().replace(/\s+/g, '_');
+                  // Use the mapping for consistent keys with the tooltip
+                  const dataKey = seriesNameToDataKey[s.name] || s.name.toLowerCase().replace(/\s+/g, '_');
                   return (
                     <linearGradient key={`gradient-${dataKey}`} id={`gradient-${dataKey}`} x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor={s.color} stopOpacity={0.8}/>
@@ -215,7 +227,8 @@ export function OverviewChart({ chartData, className }) {
               
               {/* Render an Area for each series */}
               {seriesConfig.map((s, index) => {
-                const dataKey = s.name.toLowerCase().replace(/\s+/g, '_');
+                // Use the mapping for consistent keys with the tooltip
+                const dataKey = seriesNameToDataKey[s.name] || s.name.toLowerCase().replace(/\s+/g, '_');
                 return (
                   <Area 
                     key={dataKey}

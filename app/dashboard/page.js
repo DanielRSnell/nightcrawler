@@ -68,13 +68,13 @@ export default function DashboardPage() {
     
     // Overview chart data - silicon allocation over time
     overviewChartData: {
-      title: 'Silicon Allocation',
-      subtitle: 'Last 12 months utilization',
-      yAxisLabel: 'Units',
-      // Generate data for different silicon types
+      title: 'System Resource Utilization',
+      subtitle: 'Real-time resource metrics',
+      yAxisLabel: 'Bytes',
+      // Resource utilization metrics
       series: [
         {
-          name: 'GPU A100',
+          name: 'GPU Utilization',
           color: 'rgba(56, 189, 248, 1)',
           data: [
             { month: 'Jan', value: 580 },
@@ -92,7 +92,7 @@ export default function DashboardPage() {
           ]
         },
         {
-          name: 'GPU H100',
+          name: 'CPU Utilization',
           color: 'rgba(62, 207, 142, 1)',
           data: [
             { month: 'Jan', value: 390 },
@@ -110,7 +110,7 @@ export default function DashboardPage() {
           ]
         },
         {
-          name: 'TPU v4',
+          name: 'Memory Utilization',
           color: 'rgba(255, 220, 50, 1)',
           data: [
             { month: 'Jan', value: 210 },
@@ -128,7 +128,7 @@ export default function DashboardPage() {
           ]
         },
         {
-          name: 'CPU EPYC',
+          name: 'Max Memory Usage',
           color: 'rgba(255, 65, 105, 1)',
           data: [
             { month: 'Jan', value: 180 },
